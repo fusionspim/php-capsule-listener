@@ -1,0 +1,104 @@
+<?php
+namespace FusionsPim\PhpCapsuleListener;
+
+use Closure;
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Events\QueryExecuted;
+
+class CapsuleDebugListener
+{
+    protected static $instance;
+
+    protected $count = 0;
+
+    public function enableQueryListener(Closure $function = null): void
+    {
+        $function = ($function ?: $this->defaultOutputFunction())->bindTo($this);
+
+        $this->disableQueryListener();
+        $this->count = 0;
+
+        Capsule::connection()->listen(function ($query) use ($function) {
+            $this->count++;
+
+            $function($this->prepareQuery($query), $this->count, $this->getQueryCallee(debug_backtrace()));
+        });
+    }
+
+    public function disableQueryListener(): void
+    {
+        $events = Capsule::connection()->getEventDispatcher();
+        $events->forget(QueryExecuted::class);
+    }
+
+    protected function getQueryCallee(array $backtrace): array
+    {
+        $stack = [];
+
+        foreach ($backtrace as $trace) {
+            if (! isset($trace['file'], $trace['class']) || $this->isEloquent($trace) || $this->isMagic($trace)) {
+                continue;
+            }
+
+            if ($this->builderTriggeredQuery($trace)) { // We need another level of the stack
+                $stack[] = $trace;
+                continue;
+            }
+
+            $stack[] = $trace;
+            break;
+        }
+
+        return $stack;
+    }
+
+    private function isEloquent(array $trace): bool
+    {
+        return strstr($trace['file'], 'vendor/illuminate/');
+    }
+
+    private function isMagic(array $trace): bool
+    {
+        return substr($trace['function'], 0, 2) === '__';
+    }
+
+    private function builderTriggeredQuery(array $trace): bool
+    {
+        return strstr($trace['class'], 'Illuminate\Database\Eloquent\Builder');
+    }
+
+    protected function prepareQuery($query): string
+    {
+        if (count($query->bindings) > 0) {
+            return vsprintf(str_replace('?', '%s', $query->sql), array_map(function ($value) {
+                return (is_numeric($value) ? $value : "'" . $value . "'");
+            }, $query->bindings));
+        } else {
+            return $query->sql;
+        }
+    }
+
+    protected function defaultOutputFunction(): Closure
+    {
+        return function (string $sql, int $count, array $stack = []) {
+            $output = ['Query' . $count => $sql];
+
+            foreach ($stack as $trace) {
+                $output['Callees'][] = sprintf(
+                    '%s:%s in %s:%s',
+                    $trace['class'],
+                    $trace['function'],
+                    $trace['file'],
+                    $trace['line']
+                );
+            }
+
+            dump($output);
+        };
+    }
+
+    public static function getInstance(): CapsuleDebugListener
+    {
+        return (static::$instance ?: new static);
+    }
+}

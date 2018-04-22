@@ -1,0 +1,16 @@
+{
+  "name": "fusionspim/php-capsule-listener",
+  "type": "library",
+  "require": {
+    "php": "^7.1",
+    "illuminate/database": "^5.5",
+    "symfony/var-dumper": "~4.0"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.6"
+  },
+  "autoload": {
+    "psr-4": {"FusionsPim\\PhpCapsuleListener\\": "src/"},
+    "files": ["src/functions.php"]
+  }
+}
