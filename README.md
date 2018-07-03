@@ -25,6 +25,15 @@ CapsuleDebugListener::getInstance()->enable();
 CapsuleDebugListener::getInstance()->disable();
 ```
 
+You can also use it as a multiton by specifying a name. This may be handy for multiple connections:
+```
+CapsuleDebugListener::getInstance('write')
+    ->setConnection(Capsule::connection('write'))
+    ->enable();
+// Run some SQL.
+CapsuleDebugListener::getInstance('write')->disable();
+``` 
+
 There are also some handy helper function pairs. You can dump the trace like this:  
 ```
 start_dumping_queries();
@@ -53,10 +62,11 @@ A trace array is structured like this:
     // A running count of how many queries have run.
     'count' => 1,
                         
-    // The exact SQL run, with parameters replaced.
+    // The exact SQL run with parameters replaced.
+    // May contain sensitive data.
     'sql' => 'SELECT * FROM foo', 
     
-    // A cleaned up stack trace that shows where the function originates.
+    // A n array that contains a cleaned up stack trace of where the query originated from.
     // Excludes Eloquent's codebase and any magic functions.
     'callees' => [
         'Foo\Bar\Model:do_something in /src/Foo/Bar/Model.php:256',
@@ -64,17 +74,11 @@ A trace array is structured like this:
 ]
 ```
 
-If you need to debug a specific connection you can pass it to the constructor:
+If you need to debug a specific connection, you can specific it via `setConnection()`:
 ```
-$listener = new CapsuleDebugListener($connection);
+$listener = new CapsuleDebugListener();
+$listener->setConnection(Capsule::connection('write'));
 $listener->enable();
 // Run some SQL.
 $listener->disable();
-```
-
-You can also pass it to the singleton:
-```
-CapsuleDebugListener::getInstance($connection)->enable();
-// Run some SQL.
-CapsuleDebugListener::getInstance()->disable();
 ```

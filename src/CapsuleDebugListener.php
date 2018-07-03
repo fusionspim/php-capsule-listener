@@ -22,9 +22,20 @@ class CapsuleDebugListener
         return static::$instances[$name];
     }
 
-    public function __construct(Connection $connection = null)
+    public function __construct()
     {
-        $this->connection = ($connection !== null ? $connection : Capsule::connection());
+        $this->setConnection(Capsule::connection());
+    }
+
+    public function setConnection(Connection $connection): self
+    {
+        $this->connection = $connection;
+        return $this;
+    }
+
+    public function getConnection(): Connection
+    {
+        return $this->connection;
     }
 
     public function enable(Closure $function = null): void

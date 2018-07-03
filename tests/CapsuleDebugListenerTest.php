@@ -28,6 +28,16 @@ class CapsuleDebugListenerTest extends TestCase
         $this->assertSame(CapsuleDebugListener::getInstance('write'), $instance);
         $this->assertNotSame(CapsuleDebugListener::getInstance(), $instance);
     }
+
+    public function test_set_connection()
+    {
+        $defaultInstance = CapsuleDebugListener::getInstance()->setConnection(Capsule::connection());
+        $this->assertSame('default', $defaultInstance->getConnection()->getName());
+
+        $otherInstance = CapsuleDebugListener::getInstance()->setConnection(Capsule::connection('other'));
+        $this->assertSame('other', $otherInstance->getConnection()->getName());
+    }
+
     public function test_log_queries()
     {
         $logs = [];

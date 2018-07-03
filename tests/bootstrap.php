@@ -17,6 +17,12 @@ $capsule->addConnection([
     'prefix'   => '',
 ]);
 
+$capsule->addConnection([
+    'driver'   => 'sqlite',
+    'database' => ':memory:',
+    'prefix'   => '',
+], 'other');
+
 $capsule->setEventDispatcher(new Dispatcher(new Container));
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
