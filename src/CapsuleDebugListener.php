@@ -43,8 +43,7 @@ class CapsuleDebugListener
 
     public function disable(): void
     {
-        $events = $this->connection->getEventDispatcher();
-        $events->forget(QueryExecuted::class);
+        $this->connection->getEventDispatcher()->forget(QueryExecuted::class);
     }
 
     protected function getQueryCallee(array $backtrace): array
