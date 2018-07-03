@@ -24,9 +24,7 @@ class CapsuleDebugListener
 
     public function __construct(Connection $connection = null)
     {
-        if ($connection === null) {
-            $this->connection = Capsule::connection();
-        }
+        $this->connection = ($connection !== null ? $connection : Capsule::connection());
     }
 
     public function enable(Closure $function = null): void
