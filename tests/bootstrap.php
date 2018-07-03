@@ -6,6 +6,9 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Events\Dispatcher;
 
+// Setup constants.
+define('FIXTURES_PATH', __DIR__ . '/fixtures');
+
 // Setup Eloquent connection to use an in-memory SQLite3 database.
 $capsule = new Capsule;
 $capsule->addConnection([
@@ -27,7 +30,6 @@ Capsule::schema()->create('authors', function (Blueprint $table) {
     $table->increments('id');
     $table->string('name', 255);
     $table->string('email', 255);
-    $table->timestamps();
 });
 
 Capsule::schema()->create('articles', function (Blueprint $table) {
@@ -37,5 +39,4 @@ Capsule::schema()->create('articles', function (Blueprint $table) {
     $table->json('tags');
     $table->unsignedInteger('views');
     $table->unsignedInteger('author_id');
-    $table->timestamps();
 });
