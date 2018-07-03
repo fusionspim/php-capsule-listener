@@ -3,21 +3,30 @@ namespace FusionsPim\PhpCapsuleListener;
 
 use Closure;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Connection;
 use Illuminate\Database\Events\QueryExecuted;
 
 class CapsuleDebugListener
 {
     protected static $instance;
 
+    protected $connection;
     protected $count = 0;
 
     public static function getInstance(): self
     {
         if (static::$instance === null) {
-            static::$instance = new static;
+            static::$instance = new static(...func_get_args());
         }
 
         return static::$instance;
+    }
+
+    public function __construct(Connection $connection = null)
+    {
+        if ($connection === null) {
+            $this->connection = Capsule::connection();
+        }
     }
 
     public function enable(Closure $function = null): void
@@ -27,7 +36,7 @@ class CapsuleDebugListener
         $this->disable();
         $this->count = 0;
 
-        Capsule::connection()->listen(function ($query) use ($function) {
+        $this->connection->listen(function ($query) use ($function) {
             $this->count++;
 
             $function($this->prepareQuery($query), $this->count, $this->getQueryCallee(debug_backtrace()));
@@ -36,7 +45,7 @@ class CapsuleDebugListener
 
     public function disable(): void
     {
-        $events = Capsule::connection()->getEventDispatcher();
+        $events = $this->connection->getEventDispatcher();
         $events->forget(QueryExecuted::class);
     }
 
