@@ -38,15 +38,17 @@ class CapsuleDebugListenerTest extends TestCase
         $this->assertSame('other', $otherInstance->getConnection()->getName());
     }
 
+    public function test_dump_queries()
+    {
+        $this->markTestIncomplete('Need to figure out how to capture VarDumper output to a buffer');
+    }
+
     public function test_log_queries()
     {
-        $logs = [];
-        CapsuleDebugListener::getInstance()->enable(function ($stack) use (&$logs) {
-            $logs[] = $stack;
-        });
+        start_capturing_queries();
 
         $author = Author::create([
-            'name' => 'Arthur Dent',
+            'name'  => 'Arthur Dent',
             'email' => 'arthur@hitchhiker.co.uk',
         ]);
 
@@ -61,7 +63,7 @@ class CapsuleDebugListenerTest extends TestCase
         Author::find($author->id);
         Article::find($article->id);
 
-        CapsuleDebugListener::getInstance()->disable();
+        $logs = stop_capturing_queries();
 
         $this->assertJsonStringEqualsJsonString(
             file_get_contents(FIXTURES_PATH . '/test_log_queries.json'),

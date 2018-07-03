@@ -1,24 +1,36 @@
 <?php
 use FusionsPim\PhpCapsuleListener\CapsuleDebugListener;
+use Illuminate\Database\Connection;
 
 if (! function_exists('start_dumping_queries')) {
-    function start_dumping_queries(): void
+    function start_dumping_queries(Connection $connection = null): void
     {
-        CapsuleDebugListener::getInstance()->enable();
+        $listener = CapsuleDebugListener::getInstance('dump');
+
+        if ($connection !== null) {
+            $listener->setConnection($connection);
+        }
+
+        $listener->enable();
     }
 }
 
 if (! function_exists('stop_dumping_queries')) {
     function stop_dumping_queries(): void
     {
-        CapsuleDebugListener::getInstance()->disable();
+        CapsuleDebugListener::getInstance('dump')->disable();
     }
 }
 
 if (! function_exists('start_capturing_queries')) {
-    function start_capturing_queries(): void
+    function start_capturing_queries(Connection $connection = null): void
     {
-        $listener       = CapsuleDebugListener::getInstance();
+        $listener = CapsuleDebugListener::getInstance('capture');
+
+        if ($connection !== null) {
+            $listener->setConnection($connection);
+        }
+
         $listener->logs = []; // Dynamically declared so it's available in function below.
         $listener->enable(function (array $trace) {
             $this->logs[] = $trace;
@@ -29,7 +41,7 @@ if (! function_exists('start_capturing_queries')) {
 if (! function_exists('stop_capturing_queries')) {
     function stop_capturing_queries(): array
     {
-        $listener = CapsuleDebugListener::getInstance();
+        $listener = CapsuleDebugListener::getInstance('capture');
         $listener->disable();
         return $listener->logs;
     }
