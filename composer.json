@@ -7,10 +7,14 @@
     "symfony/var-dumper": "~4.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.6"
+    "friendsofphp/php-cs-fixer": "^2.6",
+    "phpunit/phpunit": "^7"
   },
   "autoload": {
-    "psr-4": {"FusionsPim\\PhpCapsuleListener\\": "src/"},
+    "psr-4": {
+      "FusionsPim\\PhpCapsuleListener\\": "src/",
+      "FusionsPim\\Tests\\PhpCapsuleListener\\": "tests/"
+    },
     "files": ["src/functions.php"]
   }
 }
