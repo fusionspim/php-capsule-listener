@@ -1,15 +1,15 @@
 <?php
 use FusionsPim\PhpCapsuleListener\CapsuleDebugListener;
 
-if (! function_exists('start_logging_queries')) {
-    function start_logging_queries(): void
+if (! function_exists('start_dumping_queries')) {
+    function start_dumping_queries(): void
     {
         CapsuleDebugListener::getInstance()->enable();
     }
 }
 
-if (! function_exists('stop_logging_queries')) {
-    function stop_logging_queries(): void
+if (! function_exists('stop_dumping_queries')) {
+    function stop_dumping_queries(): void
     {
         CapsuleDebugListener::getInstance()->disable();
     }
