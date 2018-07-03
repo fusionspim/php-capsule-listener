@@ -61,17 +61,17 @@ class CapsuleDebugListener
         return $stack;
     }
 
-    private function isEloquent(array $trace): bool
+    protected function isEloquent(array $trace): bool
     {
         return strstr($trace['file'], 'vendor/illuminate/');
     }
 
-    private function isMagic(array $trace): bool
+    protected function isMagic(array $trace): bool
     {
         return substr($trace['function'], 0, 2) === '__';
     }
 
-    private function builderTriggeredQuery(array $trace): bool
+    protected function builderTriggeredQuery(array $trace): bool
     {
         return strstr($trace['class'], 'Illuminate\Database\Eloquent\Builder');
     }
