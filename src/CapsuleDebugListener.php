@@ -29,7 +29,7 @@ class CapsuleDebugListener
 
     public function enable(Closure $function = null): void
     {
-        $function = ($function ?: $this->defaultOutputFunction())->bindTo($this);
+        $function = ($function ?: function($trace) { dump($trace); })->bindTo($this);
 
         $this->disable();
         $this->count = 0;
@@ -37,7 +37,23 @@ class CapsuleDebugListener
         $this->connection->listen(function ($query) use ($function) {
             $this->count++;
 
-            $function($this->prepareQuery($query), $this->count, $this->getQueryCallee(debug_backtrace()));
+            $trace = [
+                'count'   => $this->count,
+                'sql'     => $this->prepareQuery($query),
+                'callees' => [],
+            ];
+
+            foreach ($this->getQueryCallee(debug_backtrace()) as $stack) {
+                $trace['callees'][] = sprintf(
+                    '%s:%s in %s:%s',
+                    $stack['class'],
+                    $stack['function'],
+                    $stack['file'],
+                    $stack['line']
+                );
+            }
+
+            $function($trace);
         });
     }
 
@@ -91,24 +107,5 @@ class CapsuleDebugListener
         }
 
         return $query->sql;
-    }
-
-    protected function defaultOutputFunction(): Closure
-    {
-        return function (string $sql, int $count, array $stack = []) {
-            $output = ['Query' . $count => $sql];
-
-            foreach ($stack as $trace) {
-                $output['Callees'][] = sprintf(
-                    '%s:%s in %s:%s',
-                    $trace['class'],
-                    $trace['function'],
-                    $trace['file'],
-                    $trace['line']
-                );
-            }
-
-            dump($output);
-        };
     }
 }
