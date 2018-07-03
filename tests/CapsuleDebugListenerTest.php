@@ -21,6 +21,13 @@ class CapsuleDebugListenerTest extends TestCase
         $this->assertSame(CapsuleDebugListener::getInstance(), $instance);
     }
 
+    public function test_get_named_instance()
+    {
+        $instance = CapsuleDebugListener::getInstance('write');
+        $this->assertInstanceOf(CapsuleDebugListener::class, $instance);
+        $this->assertSame(CapsuleDebugListener::getInstance('write'), $instance);
+        $this->assertNotSame(CapsuleDebugListener::getInstance(), $instance);
+    }
     public function test_log_queries()
     {
         $logs = [];

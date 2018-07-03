@@ -8,18 +8,18 @@ use Illuminate\Database\Events\QueryExecuted;
 
 class CapsuleDebugListener
 {
-    protected static $instance;
+    protected static $instances = [];
 
     protected $connection;
     protected $count = 0;
 
-    public static function getInstance(): self
+    public static function getInstance($name = 'default'): self
     {
-        if (static::$instance === null) {
-            static::$instance = new static(...func_get_args());
+        if (! isset(static::$instances[$name]) || static::$instances[$name] === null) {
+            static::$instances[$name] = new static;
         }
 
-        return static::$instance;
+        return static::$instances[$name];
     }
 
     public function __construct(Connection $connection = null)

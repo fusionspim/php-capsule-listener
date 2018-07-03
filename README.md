@@ -40,20 +40,11 @@ $logs = stop_capturing_queries();
 var_dump($logs);
 ```
 
-By default the output is dumped out using [Symfony's VarDumper](https://symfony.com/doc/current/components/var_dumper.html), but you can also specify your own output handling function, which will receive each trace as it occurs:
+By default the output is dumped out using [Symfony's VarDumper](https://symfony.com/doc/current/components/var_dumper.html), but you can also specify your own output handling function when calling `enable()`:
 ```
-$listener = new CapsuleDebugListener;
-$listener->enable(function (array $stack) {
+(new CapsuleDebugListener)->enable(function (array $stack) {
     // Your custom output handling here.
 });
-// Run some SQL.
-$listener->disable();
-
-CapsuleDebugListener::getInstance()->enable(function (array $stack) {
-    // Your custom output handling here.
-});
-// Run some SQL.
-CapsuleDebugListener::getInstance()->disable();
 ```
 
 A trace array is structured like this:
