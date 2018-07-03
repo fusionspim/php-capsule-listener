@@ -11,6 +11,15 @@ class CapsuleDebugListener
 
     protected $count = 0;
 
+    public static function getInstance(): self
+    {
+        if (static::$instance === null) {
+            static::$instance = new static;
+        }
+
+        return static::$instance;
+    }
+
     public function enableQueryListener(Closure $function = null): void
     {
         $function = ($function ?: $this->defaultOutputFunction())->bindTo($this);
@@ -95,10 +104,5 @@ class CapsuleDebugListener
 
             dump($output);
         };
-    }
-
-    public static function getInstance(): CapsuleDebugListener
-    {
-        return (static::$instance ?: new static);
     }
 }
