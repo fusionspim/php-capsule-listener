@@ -20,11 +20,11 @@ class CapsuleDebugListener
         return static::$instance;
     }
 
-    public function enableQueryListener(Closure $function = null): void
+    public function enable(Closure $function = null): void
     {
         $function = ($function ?: $this->defaultOutputFunction())->bindTo($this);
 
-        $this->disableQueryListener();
+        $this->disable();
         $this->count = 0;
 
         Capsule::connection()->listen(function ($query) use ($function) {
@@ -34,7 +34,7 @@ class CapsuleDebugListener
         });
     }
 
-    public function disableQueryListener(): void
+    public function disable(): void
     {
         $events = Capsule::connection()->getEventDispatcher();
         $events->forget(QueryExecuted::class);
