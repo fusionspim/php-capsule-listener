@@ -82,9 +82,9 @@ class CapsuleDebugListener
             return vsprintf(str_replace('?', '%s', $query->sql), array_map(function ($value) {
                 return (is_numeric($value) ? $value : "'" . $value . "'");
             }, $query->bindings));
-        } else {
-            return $query->sql;
         }
+
+        return $query->sql;
     }
 
     protected function defaultOutputFunction(): Closure
