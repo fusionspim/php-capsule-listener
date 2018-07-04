@@ -62,11 +62,11 @@ A trace array is structured like this:
     // A running count of how many queries have run.
     'count' => 1,
                         
-    // The exact SQL run with parameters replaced.
+    // The SQL run with parameters replaced.
     // May contain sensitive data.
     'sql' => 'SELECT * FROM foo', 
     
-    // A n array that contains a cleaned up stack trace of where the query originated from.
+    // An array that contains a cleaned up stack trace of where the query originated from.
     // Excludes Eloquent's codebase and any magic functions.
     'callees' => [
         'Foo\Bar\Model:do_something in /src/Foo/Bar/Model.php:256',
