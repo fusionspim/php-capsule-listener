@@ -3,32 +3,74 @@ namespace FusionsPim\PhpCapsuleListener;
 
 use Closure;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Database\Connection;
 use Illuminate\Database\Events\QueryExecuted;
 
 class CapsuleDebugListener
 {
-    protected static $instance;
+    protected static $instances = [];
 
+    protected $connection;
     protected $count = 0;
 
-    public function enableQueryListener(Closure $function = null): void
+    public static function getInstance($name = 'default'): self
     {
-        $function = ($function ?: $this->defaultOutputFunction())->bindTo($this);
+        if (! isset(static::$instances[$name]) || static::$instances[$name] === null) {
+            static::$instances[$name] = new static;
+        }
 
-        $this->disableQueryListener();
+        return static::$instances[$name];
+    }
+
+    public function __construct()
+    {
+        $this->setConnection(Capsule::connection());
+    }
+
+    public function setConnection(Connection $connection): self
+    {
+        $this->connection = $connection;
+        return $this;
+    }
+
+    public function getConnection(): Connection
+    {
+        return $this->connection;
+    }
+
+    public function enable(Closure $function = null): void
+    {
+        $function = ($function ?: function($trace) { dump($trace); })->bindTo($this);
+
+        $this->disable();
         $this->count = 0;
 
-        Capsule::connection()->listen(function ($query) use ($function) {
+        $this->connection->listen(function ($query) use ($function) {
             $this->count++;
 
-            $function($this->prepareQuery($query), $this->count, $this->getQueryCallee(debug_backtrace()));
+            $trace = [
+                'count'   => $this->count,
+                'sql'     => $this->prepareQuery($query),
+                'callees' => [],
+            ];
+
+            foreach ($this->getQueryCallee(debug_backtrace()) as $stack) {
+                $trace['callees'][] = sprintf(
+                    '%s:%s in %s:%s',
+                    $stack['class'],
+                    $stack['function'],
+                    $stack['file'],
+                    $stack['line']
+                );
+            }
+
+            $function($trace);
         });
     }
 
-    public function disableQueryListener(): void
+    public function disable(): void
     {
-        $events = Capsule::connection()->getEventDispatcher();
-        $events->forget(QueryExecuted::class);
+        $this->connection->getEventDispatcher()->forget(QueryExecuted::class);
     }
 
     protected function getQueryCallee(array $backtrace): array
@@ -52,17 +94,17 @@ class CapsuleDebugListener
         return $stack;
     }
 
-    private function isEloquent(array $trace): bool
+    protected function isEloquent(array $trace): bool
     {
         return strstr($trace['file'], 'vendor/illuminate/');
     }
 
-    private function isMagic(array $trace): bool
+    protected function isMagic(array $trace): bool
     {
         return substr($trace['function'], 0, 2) === '__';
     }
 
-    private function builderTriggeredQuery(array $trace): bool
+    protected function builderTriggeredQuery(array $trace): bool
     {
         return strstr($trace['class'], 'Illuminate\Database\Eloquent\Builder');
     }
@@ -73,32 +115,8 @@ class CapsuleDebugListener
             return vsprintf(str_replace('?', '%s', $query->sql), array_map(function ($value) {
                 return (is_numeric($value) ? $value : "'" . $value . "'");
             }, $query->bindings));
-        } else {
-            return $query->sql;
         }
-    }
 
-    protected function defaultOutputFunction(): Closure
-    {
-        return function (string $sql, int $count, array $stack = []) {
-            $output = ['Query' . $count => $sql];
-
-            foreach ($stack as $trace) {
-                $output['Callees'][] = sprintf(
-                    '%s:%s in %s:%s',
-                    $trace['class'],
-                    $trace['function'],
-                    $trace['file'],
-                    $trace['line']
-                );
-            }
-
-            dump($output);
-        };
-    }
-
-    public static function getInstance(): CapsuleDebugListener
-    {
-        return (static::$instance ?: new static);
+        return $query->sql;
     }
 }
