@@ -1,6 +1,7 @@
 {
   "name": "fusionspim/php-capsule-listener",
   "type": "library",
+  "license": "MIT",
   "require": {
     "php": "^7.1",
     "illuminate/database": "^5.6",
