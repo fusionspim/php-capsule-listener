@@ -40,7 +40,9 @@ class CapsuleDebugListener
 
     public function enable(Closure $function = null): void
     {
-        $function = ($function ?: function($trace) { dump($trace); })->bindTo($this);
+        $function = ($function ?: function ($trace) {
+            dump($trace);
+        })->bindTo($this);
 
         $this->disable();
         $this->count = 0;

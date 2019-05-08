@@ -2,7 +2,7 @@
 namespace FusionsPim\Tests\PhpCapsuleListener;
 
 use FusionsPim\PhpCapsuleListener\CapsuleDebugListener;
-use FusionsPim\Tests\PhpCapsuleListener\Models\{Author, Article};
+use FusionsPim\Tests\PhpCapsuleListener\Models\{Article, Author};
 use Illuminate\Database\Capsule\Manager as Capsule;
 use PHPUnit\Framework\TestCase;
 
