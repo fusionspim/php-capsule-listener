@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class CapsuleDebugListenerTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         Capsule::connection()->table('authors')->truncate();
         Capsule::connection()->table('articles')->truncate();

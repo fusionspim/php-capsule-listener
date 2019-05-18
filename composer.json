@@ -1,17 +1,18 @@
 {
   "name": "fusionspim/php-capsule-listener",
-  "type": "library",
+  "description": "Simple debugging tool for usage with Laravel's Eloquent ORM",
+  "keywords": ["capsule", "debug", "eloquent", "laravel", "orm"],
   "license": "MIT",
   "require": {
-    "php": "^7.1",
+    "php": "^7.2",
     "illuminate/database": "^5.6",
     "illuminate/events": "^5.6",
     "symfony/var-dumper": "~4.0",
     "ext-json": "^1.6"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.6",
-    "phpunit/phpunit": "^7"
+    "friendsofphp/php-cs-fixer": "2.15.*",
+    "phpunit/phpunit": "8.1.*"
   },
   "autoload": {
     "psr-4": {
