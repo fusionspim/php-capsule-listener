@@ -34,7 +34,7 @@ if (! function_exists('start_capturing_queries')) {
         }
 
         $listener->logs = []; // Dynamically declared so it's available in function below.
-        $listener->enable(function (array $trace) {
+        $listener->enable(function (array $trace): void {
             $this->logs[] = $trace;
         });
 
@@ -47,6 +47,7 @@ if (! function_exists('stop_capturing_queries')) {
     {
         $listener = CapsuleDebugListener::getInstance('capture');
         $listener->disable();
+
         return $listener->logs;
     }
 }

@@ -8,20 +8,20 @@ use PHPUnit\Framework\TestCase;
 
 class CapsuleDebugListenerTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         Capsule::connection()->table('authors')->truncate();
         Capsule::connection()->table('articles')->truncate();
     }
 
-    public function test_get_instance()
+    public function test_get_instance(): void
     {
         $instance = CapsuleDebugListener::getInstance();
         $this->assertInstanceOf(CapsuleDebugListener::class, $instance);
         $this->assertSame(CapsuleDebugListener::getInstance(), $instance);
     }
 
-    public function test_get_named_instance()
+    public function test_get_named_instance(): void
     {
         $instance = CapsuleDebugListener::getInstance('write');
         $this->assertInstanceOf(CapsuleDebugListener::class, $instance);
@@ -29,7 +29,7 @@ class CapsuleDebugListenerTest extends TestCase
         $this->assertNotSame(CapsuleDebugListener::getInstance(), $instance);
     }
 
-    public function test_set_connection()
+    public function test_set_connection(): void
     {
         $defaultInstance = CapsuleDebugListener::getInstance()->setConnection(Capsule::connection());
         $this->assertSame('default', $defaultInstance->getConnection()->getName());
@@ -38,12 +38,12 @@ class CapsuleDebugListenerTest extends TestCase
         $this->assertSame('other', $otherInstance->getConnection()->getName());
     }
 
-    public function test_dump_queries()
+    public function test_dump_queries(): void
     {
         $this->markTestIncomplete('Need to figure out how to capture VarDumper output to a buffer');
     }
 
-    public function test_log_queries()
+    public function test_log_queries(): void
     {
         start_capturing_queries();
 

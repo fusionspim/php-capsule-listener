@@ -32,13 +32,13 @@ Capsule::schema()->dropIfExists('authors');
 Capsule::schema()->dropIfExists('articles');
 
 // Create test schemas.
-Capsule::schema()->create('authors', function (Blueprint $table) {
+Capsule::schema()->create('authors', function (Blueprint $table): void {
     $table->increments('id');
     $table->string('name', 255);
     $table->string('email', 255);
 });
 
-Capsule::schema()->create('articles', function (Blueprint $table) {
+Capsule::schema()->create('articles', function (Blueprint $table): void {
     $table->increments('id');
     $table->string('title', 255);
     $table->text('description');
