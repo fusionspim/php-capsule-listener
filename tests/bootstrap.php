@@ -6,9 +6,6 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Events\Dispatcher;
 
-// Setup constants.
-define('FIXTURES_PATH', __DIR__ . '/fixtures');
-
 // Setup Eloquent connection to use an in-memory SQLite3 database.
 $capsule = new Capsule;
 $capsule->addConnection([
