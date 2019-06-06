@@ -57,7 +57,7 @@ class CapsuleDebugListenerTest extends TestCase
             'description' => 'When travelling through the galaxy, always bring a towel.',
             'tags'        => ['travel', 'towel'],
             'views'       => 42,
-            'author_id'   => 1,
+            'author_id'   => $author->id,
         ]);
 
         Author::find($author->id);
