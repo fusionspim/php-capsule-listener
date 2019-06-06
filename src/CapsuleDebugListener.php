@@ -13,6 +13,11 @@ class CapsuleDebugListener
     protected $connection;
     protected $count = 0;
 
+    public function __construct()
+    {
+        $this->setConnection(Capsule::connection());
+    }
+
     public static function getInstance($name = 'default'): self
     {
         if (! isset(static::$instances[$name]) || static::$instances[$name] === null) {
@@ -22,14 +27,10 @@ class CapsuleDebugListener
         return static::$instances[$name];
     }
 
-    public function __construct()
-    {
-        $this->setConnection(Capsule::connection());
-    }
-
     public function setConnection(Connection $connection): self
     {
         $this->connection = $connection;
+
         return $this;
     }
 
@@ -40,14 +41,14 @@ class CapsuleDebugListener
 
     public function enable(Closure $function = null): void
     {
-        $function = ($function ?: function ($trace) {
+        $function = ($function ?: function ($trace): void {
             dump($trace);
         })->bindTo($this);
 
         $this->disable();
         $this->count = 0;
 
-        $this->connection->listen(function ($query) use ($function) {
+        $this->connection->listen(function ($query) use ($function): void {
             $this->count++;
 
             $trace = [
@@ -98,17 +99,17 @@ class CapsuleDebugListener
 
     protected function isEloquent(array $trace): bool
     {
-        return strstr($trace['file'], 'vendor/illuminate/');
+        return mb_strstr($trace['file'], 'vendor/illuminate/');
     }
 
     protected function isMagic(array $trace): bool
     {
-        return substr($trace['function'], 0, 2) === '__';
+        return mb_substr($trace['function'], 0, 2) === '__';
     }
 
     protected function builderTriggeredQuery(array $trace): bool
     {
-        return strstr($trace['class'], 'Illuminate\Database\Eloquent\Builder');
+        return mb_strstr($trace['class'], 'Illuminate\Database\Eloquent\Builder');
     }
 
     protected function prepareQuery($query): string
