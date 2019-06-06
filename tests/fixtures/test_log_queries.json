@@ -8,7 +8,7 @@
     },
     {
         "count": 2,
-        "sql": "insert into \"articles\" (\"title\", \"description\", \"tags\", \"views\", \"author_id\") values ('Always Bring a Towel!', 'When travelling through the galaxy, always bring a towel.', 'Array', 42, 1)",
+        "sql": "insert into \"articles\" (\"title\", \"description\", \"tags\", \"views\", \"author_id\") values ('Always Bring a Towel!', 'When travelling through the galaxy, always bring a towel.', '[\"travel\",\"towel\"]', 42, 1)",
         "callees": [
             "FusionsPim\\Tests\\PhpCapsuleListener\\CapsuleDebugListenerTest:test_log_queries in /var/www/vhosts/php-capsule-listener/vendor/phpunit/phpunit/src/Framework/TestCase.php:1172"
         ]
