@@ -6,7 +6,7 @@ It will dump out what queries are being executed by Eloquent in your code and sh
 
 ## Installation:
 
-`composer --require-dev fusionspim/php-capsule-listener`
+`composer require --dev fusionspim/php-capsule-listener`
 
 ## Usage
 
