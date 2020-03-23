@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3201bf20dd8db3e97a3e8dd37c3840ee",
+    "content-hash": "8653a700b08e81f86f0a2e0c67bbfce9",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1057,16 +1057,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.15.5",
+            "version": "v2.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "06f39c79e00d4ed56749ed7910970d3f8ed3e841"
+                "reference": "c8afb599858876e95e8ebfcd97812d383fa23f02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/06f39c79e00d4ed56749ed7910970d3f8ed3e841",
-                "reference": "06f39c79e00d4ed56749ed7910970d3f8ed3e841",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/c8afb599858876e95e8ebfcd97812d383fa23f02",
+                "reference": "c8afb599858876e95e8ebfcd97812d383fa23f02",
                 "shasum": ""
             },
             "require": {
@@ -1142,24 +1142,24 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2019-11-25T22:07:25+00:00"
+            "time": "2019-11-25T22:10:32+00:00"
         },
         {
             "name": "fusionspim/php-cs-fixer-config",
-            "version": "3.0.0",
+            "version": "4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fusionspim/php-cs-fixer-config.git",
-                "reference": "c044f928f6da91f5592f36d0b6b9659e6ea5de86"
+                "reference": "b47ba981f4ad062dc8cb1bd5adc3474658acf8af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fusionspim/php-cs-fixer-config/zipball/c044f928f6da91f5592f36d0b6b9659e6ea5de86",
-                "reference": "c044f928f6da91f5592f36d0b6b9659e6ea5de86",
+                "url": "https://api.github.com/repos/fusionspim/php-cs-fixer-config/zipball/b47ba981f4ad062dc8cb1bd5adc3474658acf8af",
+                "reference": "b47ba981f4ad062dc8cb1bd5adc3474658acf8af",
                 "shasum": ""
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "2.15.*",
+                "friendsofphp/php-cs-fixer": "2.16.*",
                 "kubawerlos/php-cs-fixer-custom-fixers": "^1.15",
                 "php": ">=7.2"
             },
@@ -1178,27 +1178,31 @@
                 "configuration",
                 "php-cs-fixer"
             ],
-            "time": "2019-09-01T09:26:23+00:00"
+            "time": "2020-02-15T10:50:12+00:00"
         },
         {
             "name": "kubawerlos/php-cs-fixer-custom-fixers",
-            "version": "v1.16.2",
+            "version": "v1.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
-                "reference": "2443b83696b0bb0435a1aa75ed0185515400411d"
+                "reference": "bd5c32d9593d0dac0f3800b312d112577de7e620"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/2443b83696b0bb0435a1aa75ed0185515400411d",
-                "reference": "2443b83696b0bb0435a1aa75ed0185515400411d",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/bd5c32d9593d0dac0f3800b312d112577de7e620",
+                "reference": "bd5c32d9593d0dac0f3800b312d112577de7e620",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "friendsofphp/php-cs-fixer": "^2.14",
+                "friendsofphp/php-cs-fixer": "^2.16.1",
                 "php": "^7.1",
-                "symfony/finder": "^3.0 || ^4.0"
+                "symfony/finder": "^3.0 || ^4.0 || ^5.0"
+            },
+            "require-dev": {
+                "johnkary/phpunit-speedtrap": "^3.1.0",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.2"
             },
             "type": "library",
             "autoload": {
@@ -1217,7 +1221,7 @@
                 }
             ],
             "description": "A set of custom fixers for PHP CS Fixer",
-            "time": "2019-11-07T16:56:22+00:00"
+            "time": "2020-03-01T06:51:26+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -2978,25 +2982,25 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v4.4.5",
+            "version": "v5.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "ea69c129aed9fdeca781d4b77eb20b62cf5d5357"
+                "reference": "6251f201187ca9d66f6b099d3de65d279e971138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/ea69c129aed9fdeca781d4b77eb20b62cf5d5357",
-                "reference": "ea69c129aed9fdeca781d4b77eb20b62cf5d5357",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/6251f201187ca9d66f6b099d3de65d279e971138",
+                "reference": "6251f201187ca9d66f6b099d3de65d279e971138",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": "^7.2.5"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.4-dev"
+                    "dev-master": "5.0-dev"
                 }
             },
             "autoload": {
@@ -3023,7 +3027,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-02-14T07:42:58+00:00"
+            "time": "2020-02-14T07:43:07+00:00"
         },
         {
             "name": "symfony/options-resolver",
