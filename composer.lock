@@ -1146,21 +1146,21 @@
         },
         {
             "name": "fusionspim/php-cs-fixer-config",
-            "version": "4.0.0",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fusionspim/php-cs-fixer-config.git",
-                "reference": "b47ba981f4ad062dc8cb1bd5adc3474658acf8af"
+                "reference": "87af2975773d0e7d74f9457bf5640f038d3dd12f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fusionspim/php-cs-fixer-config/zipball/b47ba981f4ad062dc8cb1bd5adc3474658acf8af",
-                "reference": "b47ba981f4ad062dc8cb1bd5adc3474658acf8af",
+                "url": "https://api.github.com/repos/fusionspim/php-cs-fixer-config/zipball/87af2975773d0e7d74f9457bf5640f038d3dd12f",
+                "reference": "87af2975773d0e7d74f9457bf5640f038d3dd12f",
                 "shasum": ""
             },
             "require": {
                 "friendsofphp/php-cs-fixer": "2.16.*",
-                "kubawerlos/php-cs-fixer-custom-fixers": "^1.15",
+                "kubawerlos/php-cs-fixer-custom-fixers": "^2.1.0",
                 "php": ">=7.2"
             },
             "type": "library",
@@ -1178,31 +1178,31 @@
                 "configuration",
                 "php-cs-fixer"
             ],
-            "time": "2020-02-15T10:50:12+00:00"
+            "time": "2020-03-24T07:16:19+00:00"
         },
         {
             "name": "kubawerlos/php-cs-fixer-custom-fixers",
-            "version": "v1.17.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kubawerlos/php-cs-fixer-custom-fixers.git",
-                "reference": "bd5c32d9593d0dac0f3800b312d112577de7e620"
+                "reference": "59af5d2be00eb4ebd4d5d324ac5b9b777e623dba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/bd5c32d9593d0dac0f3800b312d112577de7e620",
-                "reference": "bd5c32d9593d0dac0f3800b312d112577de7e620",
+                "url": "https://api.github.com/repos/kubawerlos/php-cs-fixer-custom-fixers/zipball/59af5d2be00eb4ebd4d5d324ac5b9b777e623dba",
+                "reference": "59af5d2be00eb4ebd4d5d324ac5b9b777e623dba",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
                 "friendsofphp/php-cs-fixer": "^2.16.1",
-                "php": "^7.1",
+                "php": "^7.2",
                 "symfony/finder": "^3.0 || ^4.0 || ^5.0"
             },
             "require-dev": {
-                "johnkary/phpunit-speedtrap": "^3.1.0",
-                "phpunit/phpunit": "^7.5.20 || ^8.5.2"
+                "johnkary/phpunit-speedtrap": "^3.2.0",
+                "phpunit/phpunit": "^8.5.2 || ^9.0.1"
             },
             "type": "library",
             "autoload": {
@@ -1221,7 +1221,7 @@
                 }
             ],
             "description": "A set of custom fixers for PHP CS Fixer",
-            "time": "2020-03-01T06:51:26+00:00"
+            "time": "2020-03-15T20:58:33+00:00"
         },
         {
             "name": "myclabs/deep-copy",
