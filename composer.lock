@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "26fae05883b274d7967d13ec0a5f2047",
+    "content-hash": "434725c517da5d3ce305719e6608a238",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -2273,22 +2273,24 @@
         },
         {
             "name": "fusionspim/php-cs-fixer-config",
-            "version": "4.2.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fusionspim/php-cs-fixer-config.git",
-                "reference": "1bcc5a2c11b7f267b8ff5aa7800485aa224f1f2a"
+                "reference": "0338ae43e1372939242331536682dbb13a023f93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fusionspim/php-cs-fixer-config/zipball/1bcc5a2c11b7f267b8ff5aa7800485aa224f1f2a",
-                "reference": "1bcc5a2c11b7f267b8ff5aa7800485aa224f1f2a",
+                "url": "https://api.github.com/repos/fusionspim/php-cs-fixer-config/zipball/0338ae43e1372939242331536682dbb13a023f93",
+                "reference": "0338ae43e1372939242331536682dbb13a023f93",
                 "shasum": ""
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "2.16.*",
                 "kubawerlos/php-cs-fixer-custom-fixers": "^2.1.0",
                 "php": ">=7.4"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.6"
             },
             "type": "library",
             "autoload": {
@@ -2305,7 +2307,7 @@
                 "configuration",
                 "php-cs-fixer"
             ],
-            "time": "2020-06-22T09:03:40+00:00"
+            "time": "2020-07-08T07:56:22+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
