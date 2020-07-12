@@ -1,18 +1,25 @@
 {
   "name": "fusionspim/php-capsule-listener",
   "description": "Simple debugging tool for usage with Laravel's Eloquent ORM",
-  "keywords": ["capsule", "debug", "eloquent", "laravel", "orm"],
+  "keywords": [
+    "capsule",
+    "debug",
+    "eloquent",
+    "laravel",
+    "orm"
+  ],
   "license": "MIT",
   "require": {
     "php": ">=7.4",
+    "ext-json": "^1.6 || ^7.4",
+    "ext-mbstring": "^7.2",
     "illuminate/database": "^5.8 || ^6.0 || ^7.0",
     "illuminate/events": "^5.8 || ^6.0 || ^7.0",
-    "symfony/var-dumper": "~4.0 || ~5.0",
-    "ext-json": "^1.6 || ^7.4",
-    "ext-mbstring": "^7.2"
+    "symfony/var-dumper": "~4.0 || ~5.0"
   },
   "require-dev": {
     "ext-sqlite3": "^7.2",
+    "ergebnis/composer-normalize": "^2.6",
     "fusionspim/php-cs-fixer-config": "^4.0.0",
     "phpunit/phpunit": "^9.0.0"
   },
@@ -21,6 +28,17 @@
       "FusionsPim\\PhpCapsuleListener\\": "src/",
       "FusionsPim\\Tests\\PhpCapsuleListener\\": "tests/"
     },
-    "files": ["src/functions.php"]
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "scripts": {
+    "fix": [
+      "php-cs-fixer fix --config=.php_cs.dist; echo",
+      "composer normalize; echo"
+    ],
+    "test": [
+      "phpunit --stop-on-failure --stop-on-error; echo"
+    ]
   }
 }
