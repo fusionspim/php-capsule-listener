@@ -54,6 +54,7 @@ class CapsuleDebugListener
             $trace = [
                 'count'   => $this->count,
                 'sql'     => $this->prepareQuery($query),
+                'time'    => $query->time,
                 'callees' => [],
             ];
 
