@@ -99,7 +99,7 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v7.30.3",
+            "version": "v7.30.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
@@ -146,7 +146,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v7.30.3",
+            "version": "v7.30.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -190,16 +190,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v7.30.3",
+            "version": "v7.30.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "a1760b190fc47176565ae5c8745fe95e49e70239"
+                "reference": "c7a35698106b1ed6b50f7fd4c30ec8e9fc900e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/a1760b190fc47176565ae5c8745fe95e49e70239",
-                "reference": "a1760b190fc47176565ae5c8745fe95e49e70239",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/c7a35698106b1ed6b50f7fd4c30ec8e9fc900e41",
+                "reference": "c7a35698106b1ed6b50f7fd4c30ec8e9fc900e41",
                 "shasum": ""
             },
             "require": {
@@ -248,7 +248,7 @@
                 "orm",
                 "sql"
             ],
-            "time": "2021-01-13T13:37:00+00:00"
+            "time": "2021-01-21T14:08:35+00:00"
         },
         {
             "name": "illuminate/events",
@@ -297,7 +297,7 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v7.30.3",
+            "version": "v7.30.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
@@ -5073,12 +5073,12 @@
             "version": "1.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/webmozart/assert.git",
+                "url": "https://github.com/webmozarts/assert.git",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "reference": "bafc69caeb4d49c39fd0779086c03a3738cbb389",
                 "shasum": ""
             },
