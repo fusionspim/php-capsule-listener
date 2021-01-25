@@ -72,11 +72,11 @@ class CapsuleDebugListenerTest extends TestCase
         $this->assertSame(2, $actualLogs[1]['count']);
         $this->assertSame("insert into \"articles\" (\"title\", \"description\", \"tags\", \"views\", \"author_id\") values ('Always Bring a Towel!', 'When travelling through the galaxy, always bring a towel.', '[\"travel\",\"towel\"]', 42, 1)", $actualLogs[1]['sql']);
         $this->assertSame(3, $actualLogs[2]['count']);
-        $this->assertSame("select * from \"authors\" where \"authors\".\"id\" = 1 limit 1", $actualLogs[2]['sql']);
+        $this->assertSame('select * from "authors" where "authors"."id" = 1 limit 1', $actualLogs[2]['sql']);
         $this->assertSame(4, $actualLogs[3]['count']);
-        $this->assertSame("select * from \"articles\" where \"articles\".\"id\" = 1 limit 1", $actualLogs[3]['sql']);
+        $this->assertSame('select * from "articles" where "articles"."id" = 1 limit 1', $actualLogs[3]['sql']);
 
-        $this->assertStringStartsWith("FusionsPim\\Tests\\PhpCapsuleListener\\CapsuleDebugListenerTest:test_log_queries in", $actualLogs[0]['callees'][0]);
-        $this->assertStringContainsString("vendor/phpunit/phpunit/src/Framework/TestCase.php:", $actualLogs[0]['callees'][0]);
+        $this->assertStringStartsWith('FusionsPim\\Tests\\PhpCapsuleListener\\CapsuleDebugListenerTest:test_log_queries in', $actualLogs[0]['callees'][0]);
+        $this->assertStringContainsString('vendor/phpunit/phpunit/src/Framework/TestCase.php:', $actualLogs[0]['callees'][0]);
     }
 }
