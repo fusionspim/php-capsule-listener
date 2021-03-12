@@ -100,12 +100,18 @@ class CapsuleDebugListener
 
     protected function isEloquent(array $trace): bool
     {
-        return mb_strstr($trace['file'], 'vendor/illuminate/');
+        return (
+            mb_strstr($trace['file'], 'vendor/illuminate/') ||
+            mb_strstr($trace['file'], 'vendor/laravel/framework/src/Illuminate/')
+        );
     }
 
     protected function isMagic(array $trace): bool
     {
-        return mb_substr($trace['function'], 0, 2) === '__';
+        return (
+            mb_substr($trace['function'], 0, 2) === '__' &&
+            $trace['function'] !== '__get'
+        );
     }
 
     protected function builderTriggeredQuery(array $trace): bool
