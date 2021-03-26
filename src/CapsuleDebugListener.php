@@ -122,9 +122,7 @@ class CapsuleDebugListener
     protected function prepareQuery($query): string
     {
         if (count($query->bindings) > 0) {
-            return vsprintf(str_replace('?', '%s', $query->sql), array_map(function ($value) {
-                return (is_numeric($value) ? $value : "'" . $value . "'");
-            }, $query->bindings));
+            return vsprintf(str_replace('?', '%s', $query->sql), array_map(fn ($value) => (is_numeric($value) ? $value : "'" . $value . "'"), $query->bindings));
         }
 
         return $query->sql;
