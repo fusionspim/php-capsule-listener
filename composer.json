@@ -20,7 +20,7 @@
   "require-dev": {
     "ext-sqlite3": "^7.2",
     "ergebnis/composer-normalize": "^2.6",
-    "fusionspim/php-cs-fixer-config": "^7.1",
+    "fusionspim/php-cs-fixer-config": "^8.0",
     "phpunit/phpunit": "^9.0.0"
   },
   "autoload": {
