@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0745be205d3673c7e3e7d28dbb7ae6bb",
+    "content-hash": "32e2a20857ccab16ab6deb3eec4c1e2d",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -377,7 +377,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v8.44.0",
+            "version": "v8.45.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -5540,5 +5540,5 @@
     "platform-dev": {
         "ext-sqlite3": "^7.2"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
