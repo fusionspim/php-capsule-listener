@@ -13,7 +13,7 @@
     "php": ">=7.4",
     "ext-json": "^1.6 || ^7.4",
     "ext-mbstring": "^7.2",
-    "illuminate/database": "8.48.*",
+    "illuminate/database": "8.49.*",
     "illuminate/events": "8.49.*",
     "symfony/var-dumper": "~4.0 || ~5.0"
   },
