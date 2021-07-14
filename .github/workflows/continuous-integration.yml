@@ -50,3 +50,10 @@ jobs:
 
       - name: Run unit tests
         run: composer test
+
+      - name: Start SSH debug session
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        with:
+          timeout-minutes: 5
+          limit-access-to-actor: true
