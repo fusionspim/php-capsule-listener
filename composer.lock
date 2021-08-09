@@ -377,7 +377,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v8.53.0",
+            "version": "v8.53.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
