@@ -14,7 +14,7 @@
     "ext-json": "^7.4 || ^8.0",
     "ext-mbstring": "^7.4 || ^8.0",
     "illuminate/database": "8.55.*",
-    "illuminate/events": "8.54.*",
+    "illuminate/events": "8.55.*",
     "symfony/var-dumper": "~4.0 || ~5.0"
   },
   "require-dev": {
