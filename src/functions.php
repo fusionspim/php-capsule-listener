@@ -3,7 +3,7 @@ use FusionsPim\PhpCapsuleListener\CapsuleDebugListener;
 use Illuminate\Database\Connection;
 
 if (! function_exists('start_dumping_queries')) {
-    function start_dumping_queries(Connection $connection = null): CapsuleDebugListener
+    function start_dumping_queries(?Connection $connection = null): CapsuleDebugListener
     {
         $listener = CapsuleDebugListener::getInstance('dump');
 
@@ -25,7 +25,7 @@ if (! function_exists('stop_dumping_queries')) {
 }
 
 if (! function_exists('start_capturing_queries')) {
-    function start_capturing_queries(Connection $connection = null): CapsuleDebugListener
+    function start_capturing_queries(?Connection $connection = null): CapsuleDebugListener
     {
         $listener = CapsuleDebugListener::getInstance('capture');
 

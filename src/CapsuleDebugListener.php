@@ -39,7 +39,7 @@ class CapsuleDebugListener
         return $this->connection;
     }
 
-    public function enable(Closure $function = null): void
+    public function enable(?Closure $function = null): void
     {
         $function = ($function ?: function ($trace): void {
             dump($trace);
