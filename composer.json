@@ -1,6 +1,7 @@
 {
   "name": "fusionspim/php-capsule-listener",
   "description": "Simple debugging tool for usage with Laravel's Eloquent ORM",
+  "license": "MIT",
   "keywords": [
     "capsule",
     "debug",
@@ -8,7 +9,6 @@
     "laravel",
     "orm"
   ],
-  "license": "MIT",
   "require": {
     "php": "^7.4 || ^8.0",
     "ext-json": "^7.4 || ^8.0",
