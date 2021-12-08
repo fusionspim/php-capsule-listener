@@ -305,16 +305,16 @@
         },
         {
             "name": "illuminate/database",
-            "version": "v8.74.0",
+            "version": "v8.75.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/database.git",
-                "reference": "bc11c74366afdde941e5a6e76abd4812c22ca8dd"
+                "reference": "5bbbd9a4334793bff0e7da62cce8dc33e21a71ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/bc11c74366afdde941e5a6e76abd4812c22ca8dd",
-                "reference": "bc11c74366afdde941e5a6e76abd4812c22ca8dd",
+                "url": "https://api.github.com/repos/illuminate/database/zipball/5bbbd9a4334793bff0e7da62cce8dc33e21a71ad",
+                "reference": "5bbbd9a4334793bff0e7da62cce8dc33e21a71ad",
                 "shasum": ""
             },
             "require": {
@@ -369,7 +369,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-11-30T15:21:26+00:00"
+            "time": "2021-12-07T14:25:54+00:00"
         },
         {
             "name": "illuminate/events",
@@ -2312,16 +2312,16 @@
         },
         {
             "name": "ergebnis/composer-normalize",
-            "version": "2.17.0",
+            "version": "2.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ergebnis/composer-normalize.git",
-                "reference": "0ac8d06d91063ea7b7ade3d635f3700a8012eb57"
+                "reference": "294fcd40aa2ee991dfdfbd6a106dbee25f54c658"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/0ac8d06d91063ea7b7ade3d635f3700a8012eb57",
-                "reference": "0ac8d06d91063ea7b7ade3d635f3700a8012eb57",
+                "url": "https://api.github.com/repos/ergebnis/composer-normalize/zipball/294fcd40aa2ee991dfdfbd6a106dbee25f54c658",
+                "reference": "294fcd40aa2ee991dfdfbd6a106dbee25f54c658",
                 "shasum": ""
             },
             "require": {
@@ -2340,7 +2340,7 @@
                 "phpunit/phpunit": "^8.5.21",
                 "psalm/plugin-phpunit": "~0.16.1",
                 "symfony/filesystem": "^5.4.0",
-                "vimeo/psalm": "^4.13.1"
+                "vimeo/psalm": "^4.14.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -2383,7 +2383,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-12-05T11:34:03+00:00"
+            "time": "2021-12-08T09:16:32+00:00"
         },
         {
             "name": "ergebnis/json-normalizer",
