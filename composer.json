@@ -39,6 +39,6 @@
       "composer normalize; echo"
     ],
     "test": "phpunit --stop-on-failure --stop-on-error; echo",
-    "fix-rector": "vendor/bin/rector process src"
+    "fix-rector": "vendor/bin/rector process src tests"
   }
 }
