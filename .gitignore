@@ -1,7 +1,7 @@
 .idea
 .DS_Store
 
-composer.phar
+rector.php
 vendor
 
 .phpunit.result.cache
