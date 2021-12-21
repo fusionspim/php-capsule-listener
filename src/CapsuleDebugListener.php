@@ -4,14 +4,15 @@ namespace FusionsPim\PhpCapsuleListener;
 use Closure;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Database\Connection;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Events\QueryExecuted;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 
 class CapsuleDebugListener
 {
-    protected static $instances = [];
-
-    protected $connection;
-    protected $count = 0;
+    protected static array $instances     = [];
+    protected Connection|null $connection = null;
+    protected int $count                  = 0;
 
     public function __construct()
     {
@@ -39,7 +40,7 @@ class CapsuleDebugListener
         return $this->connection;
     }
 
-    public function enable(?Closure $function = null): void
+    public function enable(Closure|null $function = null): void
     {
         $function = ($function ?: function ($trace): void {
             dump($trace);
@@ -116,10 +117,13 @@ class CapsuleDebugListener
 
     protected function builderTriggeredQuery(array $trace): bool
     {
-        return mb_strstr($trace['class'], 'Illuminate\Database\Eloquent\Builder');
+        return (
+            mb_strstr($trace['class'], QueryBuilder::class) ||
+            mb_strstr($trace['class'], EloquentBuilder::class)
+        );
     }
 
-    protected function prepareQuery($query): string
+    protected function prepareQuery(QueryExecuted $query): string
     {
         if (count($query->bindings) > 0) {
             return vsprintf(str_replace('?', '%s', $query->sql), array_map(fn ($value) => (is_numeric($value) ? $value : "'" . $value . "'"), $query->bindings));

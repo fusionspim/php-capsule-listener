@@ -10,18 +10,19 @@
     "orm"
   ],
   "require": {
-    "php": "^7.4 || ^8.0",
-    "ext-json": "^7.4 || ^8.0",
-    "ext-mbstring": "^7.4 || ^8.0",
+    "php": "^8.0",
+    "ext-json": "^8.0",
+    "ext-mbstring": "^8.0",
     "illuminate/database": "^8.0",
     "illuminate/events": "^8.0",
     "symfony/var-dumper": "~4.0 || ~5.0"
   },
   "require-dev": {
-    "ext-sqlite3": "^7.4 || ^8.0",
+    "ext-sqlite3": "^8.0",
     "ergebnis/composer-normalize": "^2.6",
     "fusionspim/php-cs-fixer-config": "^9.0",
-    "phpunit/phpunit": "^9.0.0"
+    "phpunit/phpunit": "^9.0.0",
+    "rector/rector": "^0.12.8"
   },
   "autoload": {
     "psr-4": {
@@ -37,8 +38,7 @@
       "php-cs-fixer fix --config=.php-cs-fixer.dist.php; echo",
       "composer normalize; echo"
     ],
-    "test": [
-      "phpunit --stop-on-failure --stop-on-error; echo"
-    ]
+    "fix-rector": "vendor/bin/rector process src tests",
+    "test": "phpunit --stop-on-failure --stop-on-error; echo"
   }
 }
