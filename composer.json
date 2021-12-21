@@ -15,7 +15,7 @@
     "ext-mbstring": "^8.0",
     "illuminate/database": "^8.0",
     "illuminate/events": "^8.0",
-    "symfony/var-dumper": "~4.0 || ~5.0"
+    "symfony/var-dumper": "^5.0 || ^6.0"
   },
   "require-dev": {
     "ext-sqlite3": "^8.0",
