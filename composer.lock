@@ -99,7 +99,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v9.10.1",
+            "version": "v9.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -420,16 +420,16 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v9.10.1",
+            "version": "v9.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
-                "reference": "1a8cd0108eace85f13509ccff9b23857aae39acf"
+                "reference": "2dea521665d295f6cefef78f1b5abeea6b94e35f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/events/zipball/1a8cd0108eace85f13509ccff9b23857aae39acf",
-                "reference": "1a8cd0108eace85f13509ccff9b23857aae39acf",
+                "url": "https://api.github.com/repos/illuminate/events/zipball/2dea521665d295f6cefef78f1b5abeea6b94e35f",
+                "reference": "2dea521665d295f6cefef78f1b5abeea6b94e35f",
                 "shasum": ""
             },
             "require": {
@@ -471,7 +471,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-02-24T15:12:59+00:00"
+            "time": "2022-05-02T13:59:45+00:00"
         },
         {
             "name": "illuminate/macroable",
@@ -521,7 +521,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v9.10.1",
+            "version": "v9.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
