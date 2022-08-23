@@ -99,7 +99,7 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v9.24.0",
+            "version": "v9.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
@@ -420,7 +420,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v9.24.0",
+            "version": "v9.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -521,7 +521,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v9.24.0",
+            "version": "v9.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
