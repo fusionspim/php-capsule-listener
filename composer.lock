@@ -99,16 +99,16 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v9.26.1",
+            "version": "v9.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
-                "reference": "cd7631171bbe93589ec561d1798174a89301e27a"
+                "reference": "c756ba4d29ef8f39c0b7e4670743cdd4a502501c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/cd7631171bbe93589ec561d1798174a89301e27a",
-                "reference": "cd7631171bbe93589ec561d1798174a89301e27a",
+                "url": "https://api.github.com/repos/illuminate/bus/zipball/c756ba4d29ef8f39c0b7e4670743cdd4a502501c",
+                "reference": "c756ba4d29ef8f39c0b7e4670743cdd4a502501c",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +148,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-08-17T19:57:57+00:00"
+            "time": "2022-08-26T15:40:07+00:00"
         },
         {
             "name": "illuminate/collections",
@@ -420,7 +420,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v9.26.1",
+            "version": "v9.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -521,7 +521,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v9.26.1",
+            "version": "v9.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
